@@ -1,3 +1,4 @@
 .ssh/known_hosts
 .tmux/plugins/tmux-resurrect
 .config/nvim/.netrwhist
+.ssh/authorized_keys
