@@ -94,8 +94,8 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
 "  call dein#add('scrooloose/nerdtree')
 "  call dein#add('jistr/vim-nerdtree-tabs')
 " change surround quote
-"  call dein#add('tpope/vim-surround')
-"  call dein#add('tpope/vim-repeat')
+  call dein#add('tpope/vim-surround')
+  call dein#add('tpope/vim-repeat')
 if dein#check_install()
   call dein#install()
 endif

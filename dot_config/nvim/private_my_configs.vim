@@ -54,8 +54,11 @@ xnoremap & :&&<CR>
 
 " disable command line mode
 map q: :q
-" disable recording
-map q <Nop>
+
+" map record from q to Q
+nnoremap Q q
+nnoremap q <Nop>
+
 " get current path
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
