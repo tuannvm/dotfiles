@@ -139,7 +139,7 @@ hi cursorlinenr ctermfg=green
 nnoremap <C-w>z :tabedit %<CR>
 
 """ fuzzy search
-nnoremap <C-p> :<C-u>FZF<CR>
+nnoremap <C-p> :Files<CR>
 nnoremap <C-w>h :History:<CR>
 
 """ Ctrl a,e
@@ -455,7 +455,7 @@ let g:indentLine_enabled = 1
 """ grep
 set grepprg=ack
 let g:grep_cmd_opts = '--noheading'
-nnoremap <C-g> :Grepper<CR>
+nnoremap <C-g> :Ag<CR>
 
 """ Custom function
 

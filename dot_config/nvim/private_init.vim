@@ -43,8 +43,8 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
   call dein#add('kana/vim-textobj-entire')
   call dein#add('kana/vim-textobj-line')
 " grep
-  call dein#add('mhinz/vim-grepper')
-  call dein#add('skwp/greplace.vim')
+"  call dein#add('mhinz/vim-grepper')
+"  call dein#add('skwp/greplace.vim')
 " python support
 "  call dein#add('Chiel92/vim-autoformat')
 "  call dein#add('deoplete-plugins/deoplete-jedi')
@@ -78,8 +78,8 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
 " helm
   call dein#add('towolf/vim-helm')
 " fuzzy search
-"  call dein#add('junegunn/fzf.vim')
-"  call dein#add('junegunn/fzf', {'build': './install --all'})
+  call dein#add('junegunn/fzf.vim')
+  call dein#add('junegunn/fzf', {'build': './install --all'})
 " terminal
 "  call dein#add('mklabs/split-term.vim')
 "  call dein#add('wincent/terminus')
