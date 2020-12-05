@@ -188,9 +188,6 @@ autocmd InsertLeave * silent! pclose!
 let g:deoplete#sources#jedi#python_path = '/Users/tuannvm/.pyenv/shims/python'
 let g:deoplete#sources#jedi#show_docstring = 1
 
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
 " let g:deoplete#disable_auto_complete = 1
 " autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
