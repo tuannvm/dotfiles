@@ -18,7 +18,7 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
 " text changing
   call dein#add('tpope/vim-abolish')
 " file explorer
-  call dein#add('kevinhwang91/rnvimr')
+"  call dein#add('kevinhwang91/rnvimr')
 " snippets
   call dein#add('SirVer/ultisnips')
   call dein#add('honza/vim-snippets')

@@ -138,8 +138,8 @@ hi cursorlinenr ctermfg=green
 """ zoom pane
 nnoremap <C-w>z :tabedit %<CR>
 
-""" fuzzy search & ranger
-nnoremap <C-p> :RnvimrToggle<CR>
+""" fuzzy search
+nnoremap <C-p> :Files<CR>
 nnoremap <C-w>h :History:<CR>
 
 """ Ctrl a,e
