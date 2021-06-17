@@ -233,9 +233,6 @@ let g:terraform_fmt_on_save=1
 
 set hidden
 
-nnoremap <F10> :call LanguageClient_contextMenu()<CR>
-nnoremap ff :call LanguageClient#textDocument_hover()<CR>
-
 let g:ack_default_options =
       \ " --smart-case"
 
