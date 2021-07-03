@@ -16,14 +16,15 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
 
   " Add or remove your plugins here:
 " text changing
-  call dein#add('tpope/vim-abolish')
+"  call dein#add('tpope/vim-abolish')
 " file explorer
 "  call dein#add('kevinhwang91/rnvimr')
 " snippets
-  call dein#add('SirVer/ultisnips')
-  call dein#add('honza/vim-snippets')
+"  call dein#add('SirVer/ultisnips')
+"  call dein#add('honza/vim-snippets')
+  call dein#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
 " resize
-  call dein#add('camspiers/lens.vim')
+"  call dein#add('camspiers/lens.vim')
 " scrolling
   call dein#add('psliwka/vim-smoothie')
 " editorconfig
@@ -40,12 +41,12 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
 " file manager
 " highlight
 " linting
-  call dein#add('dense-analysis/ale')
+"  call dein#add('dense-analysis/ale')
 " textobj
-  call dein#add('michaeljsmith/vim-indent-object')
-  call dein#add('kana/vim-textobj-user')
-  call dein#add('kana/vim-textobj-entire')
-  call dein#add('kana/vim-textobj-line')
+"  call dein#add('michaeljsmith/vim-indent-object')
+"  call dein#add('kana/vim-textobj-user')
+"  call dein#add('kana/vim-textobj-entire')
+"  call dein#add('kana/vim-textobj-line')
 " grep
 "  call dein#add('mhinz/vim-grepper')
 "  call dein#add('skwp/greplace.vim')
@@ -80,7 +81,7 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
 " tmux
 " call dein#add('christoomey/vim-tmux-navigator')
 " helm
-  call dein#add('towolf/vim-helm')
+"  call dein#add('towolf/vim-helm')
 " fuzzy search
   call dein#add('junegunn/fzf.vim')
   call dein#add('junegunn/fzf', {'build': './install --all'})
@@ -98,8 +99,8 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
 "  call dein#add('scrooloose/nerdtree')
 "  call dein#add('jistr/vim-nerdtree-tabs')
 " change surround quote
-  call dein#add('tpope/vim-surround')
-  call dein#add('tpope/vim-repeat')
+"  call dein#add('tpope/vim-surround')
+"  call dein#add('tpope/vim-repeat')
 if dein#check_install()
   call dein#install()
 endif
@@ -133,6 +134,16 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 lua << EOF
 require'lspconfig'.gopls.setup{}
 require'lspconfig'.terraformls.setup{}
+
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "go", "gomod", "gdscript", "yaml", "hcl" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+  },
+  indent = {
+    enable = true
+  }
+}
 EOF
 
 source ~/.config/nvim/my_configs.vim
