@@ -33,8 +33,10 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
 " for comment
 "  call dein#add('tpope/vim-commentary')
 " auto complete
+  call dein#add('neovim/nvim-lspconfig')
   call dein#add('Shougo/deoplete.nvim')
-  call dein#add('Shougo/neoinclude.vim')
+  call dein#add('shougo/deoplete-lsp')
+"  call dein#add('Shougo/neoinclude.vim')
 " file manager
 " highlight
 " linting
@@ -72,7 +74,7 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-rhubarb')
 " terraform support
-  call dein#add('hashivim/vim-terraform')
+"  call dein#add('hashivim/vim-terraform')
 " theme
   call dein#add('hzchirs/vim-material')
 " tmux
@@ -125,6 +127,13 @@ set runtimepath+=~/.vim_runtime
 
 " tmux hack
 nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
+
+" languague server
+
+lua << EOF
+require'lspconfig'.gopls.setup{}
+require'lspconfig'.terraformls.setup{}
+EOF
 
 source ~/.config/nvim/my_configs.vim
 " source ~/.config/nvim/basic.vim
