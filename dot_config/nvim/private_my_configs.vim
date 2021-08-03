@@ -9,6 +9,48 @@ endtry
 " https://vi.stackexchange.com/questions/3314/short-buffer-name
 " set autochdir
 
+" Performance
+"" Disabling Neovim providers: 
+let g:loaded_node_provider=0
+let g:loaded_ruby_provider=0
+let g:loaded_perl_provider=0
+
+"" Vim performance settings:
+set hidden
+set ttyfast
+set lazyredraw
+set updatetime=500
+
+" fzf
+
+let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+" let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let height = float2nr(10)
+  let width = float2nr(80)
+  let horizontal = float2nr((&columns - width) / 2)
+  let vertical = float2nr((&columns - width) / 2)
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': vertical,
+        \ 'col': horizontal,
+        \ 'width': width,
+        \ 'height': height,
+        \ 'style': 'minimal'
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+endfunction
+
+nnoremap <C-r> :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
+
+""" 
 " set screen center
 nnoremap j jzz
 nnoremap k kzz
@@ -50,7 +92,7 @@ nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
 """ leader key
-" let mapleader="<M>"
+let mapleader="\<Space>"
 
 " disable command line mode
 map q: :q
@@ -109,7 +151,24 @@ augroup END
 let g:vim_json_syntax_conceal = 0
 
 """ File Manager
-" map <C-n> :NERDTreeTabsToggle<CR><C-w><C-w>
+nnoremap <silent> <leader>e :NERDTreeToggle<CR>
+
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'M',
+                \ 'Staged'    :'S',
+                \ 'Untracked' :'U',
+                \ 'Renamed'   :'R',
+                \ 'Unmerged'  :'Un',
+                \ 'Deleted'   :'D',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'I',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+
+" Exit Vim if NERDTree is the only window left:
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " let NERDTreeChDirMode=2
 " let g:NERDTreeWinSize=20
@@ -139,7 +198,6 @@ hi cursorlinenr ctermfg=green
 nnoremap <C-w>z :tabedit %<CR>
 
 """ fuzzy search
-nnoremap <C-p> :Files<CR>
 nnoremap <C-w>h :History:<CR>
 
 """ Ctrl a,e
@@ -230,8 +288,6 @@ autocmd BufRead,BufNewFile */templates/*.yaml,*/templates/*.tpl set ft=helm
 
 " terraform
 let g:terraform_fmt_on_save=1
-
-set hidden
 
 let g:ack_default_options =
       \ " --smart-case"
@@ -424,7 +480,6 @@ set laststatus=2
 " => Git gutter (Git diff)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_enabled=1
-set updatetime=500
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
 " Jump between hunks
 nmap <Leader>gn <Plug>GitGutterNextHunk  " git next

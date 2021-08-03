@@ -25,8 +25,8 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
   call dein#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
 " resize
 "  call dein#add('camspiers/lens.vim')
-" scrolling
-  call dein#add('psliwka/vim-smoothie')
+" smooth scrolling
+"  call dein#add('psliwka/vim-smoothie')
 " editorconfig
   call dein#add('editorconfig/editorconfig-vim')
 " focus on single window
@@ -72,10 +72,12 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
 "  call dein#add('wellle/targets.vim')
 " git support
 "  call dein#add('airblade/vim-gitgutter')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('tpope/vim-rhubarb')
+  " call dein#add('tpope/vim-fugitive')
+  " call dein#add('tpope/vim-rhubarb')
+  call dein#add('iberianpig/tig-explorer.vim')
+  call dein#add('rbgrouleff/bclose.vim')
 " terraform support
-"  call dein#add('hashivim/vim-terraform')
+  call dein#add('hashivim/vim-terraform')
 " theme
   call dein#add('hzchirs/vim-material')
 " tmux
@@ -95,8 +97,9 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
   call dein#add('rbong/vim-crystalline')
 " json
 "  call dein#add('elzr/vim-json')
-" nerdtree
-"  call dein#add('scrooloose/nerdtree')
+" file explorer
+  call dein#add('preservim/nerdtree')
+  call dein#add('Xuyuanp/nerdtree-git-plugin')
 "  call dein#add('jistr/vim-nerdtree-tabs')
 " change surround quote
 "  call dein#add('tpope/vim-surround')
