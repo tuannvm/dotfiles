@@ -15,65 +15,17 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
   call dein#add('/Users/tuannvm/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
-" text changing
-"  call dein#add('tpope/vim-abolish')
-" file explorer
-"  call dein#add('kevinhwang91/rnvimr')
 " snippets
-"  call dein#add('SirVer/ultisnips')
-"  call dein#add('honza/vim-snippets')
   call dein#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
-" resize
-"  call dein#add('camspiers/lens.vim')
-" smooth scrolling
-"  call dein#add('psliwka/vim-smoothie')
 " editorconfig
   call dein#add('editorconfig/editorconfig-vim')
 " focus on single window
 "  call dein#add('dhruvasagar/vim-zoom')
-" for comment
-"  call dein#add('tpope/vim-commentary')
 " auto complete
   call dein#add('neovim/nvim-lspconfig')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('shougo/deoplete-lsp')
-"  call dein#add('Shougo/neoinclude.vim')
-" file manager
-" highlight
-" linting
-"  call dein#add('dense-analysis/ale')
-" textobj
-"  call dein#add('michaeljsmith/vim-indent-object')
-"  call dein#add('kana/vim-textobj-user')
-"  call dein#add('kana/vim-textobj-entire')
-"  call dein#add('kana/vim-textobj-line')
-" grep
-"  call dein#add('mhinz/vim-grepper')
-"  call dein#add('skwp/greplace.vim')
-" python support
-"  call dein#add('Chiel92/vim-autoformat')
-"  call dein#add('deoplete-plugins/deoplete-jedi')
-" gist support
-"   call dein#add('mattn/gist-vim')
-"   call dein#add('mattn/webapi-vim')
-" go support
-"   call dein#add('fatih/vim-go')
-"   " call dein#add('jodosha/vim-godebug')
-"   call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})
-"   call dein#add('autozimu/LanguageClient-neovim', {'build': 'bash install.sh'})
-" function ta g
-"  call dein#add('majutsushi/tagbar')
-" sort
-"  call dein#add('christoomey/vim-sort-motion')
-" markdown
-"  call dein#add('plasticboy/vim-markdown')
-
-" change content inside parathense
-"  call dein#add('wellle/targets.vim')
 " git support
-"  call dein#add('airblade/vim-gitgutter')
-  " call dein#add('tpope/vim-fugitive')
-  " call dein#add('tpope/vim-rhubarb')
   call dein#add('iberianpig/tig-explorer.vim')
   call dein#add('rbgrouleff/bclose.vim')
 " terraform support
@@ -85,25 +37,16 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
 " helm
 "  call dein#add('towolf/vim-helm')
 " fuzzy search
-  call dein#add('junegunn/fzf.vim')
-  call dein#add('junegunn/fzf', {'build': './install --all'})
-" terminal
-"  call dein#add('mklabs/split-term.vim')
-"  call dein#add('wincent/terminus')
-"  call dein#add('nikvdp/neomux')
+call dein#add('nvim-lua/popup.nvim')
+call dein#add('nvim-lua/plenary.nvim')
+call dein#add('nvim-telescope/telescope.nvim')
 " difftool
 "  call dein#add('whiteinge/diffconflicts')
 " statusbar
   call dein#add('rbong/vim-crystalline')
-" json
-"  call dein#add('elzr/vim-json')
 " file explorer
-  call dein#add('preservim/nerdtree')
-  call dein#add('Xuyuanp/nerdtree-git-plugin')
-"  call dein#add('jistr/vim-nerdtree-tabs')
-" change surround quote
-"  call dein#add('tpope/vim-surround')
-"  call dein#add('tpope/vim-repeat')
+  call dein#add('kyazdani42/nvim-tree.lua')
+  call dein#add('kyazdani42/nvim-web-devicons')
 if dein#check_install()
   call dein#install()
 endif

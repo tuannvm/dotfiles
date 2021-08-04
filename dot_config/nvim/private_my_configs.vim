@@ -8,6 +8,9 @@ endtry
 " Auto change dir (help with buffer name)
 " https://vi.stackexchange.com/questions/3314/short-buffer-name
 " set autochdir
+"
+""" leader key
+let mapleader="\<Space>"
 
 " Performance
 "" Disabling Neovim providers: 
@@ -21,36 +24,19 @@ set ttyfast
 set lazyredraw
 set updatetime=500
 
-" fzf
+" fzf & find
 
-let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
-" let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+" Using Lua functions
+nnoremap <leader>r <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
 
-function! FloatingFZF()
-  let buf = nvim_create_buf(v:false, v:true)
-  call setbufvar(buf, '&signcolumn', 'no')
-
-  let height = float2nr(10)
-  let width = float2nr(80)
-  let horizontal = float2nr((&columns - width) / 2)
-  let vertical = float2nr((&columns - width) / 2)
-
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': vertical,
-        \ 'col': horizontal,
-        \ 'width': width,
-        \ 'height': height,
-        \ 'style': 'minimal'
-        \ }
-
-  call nvim_open_win(buf, v:true, opts)
-endfunction
-
-nnoremap <C-r> :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
 
 """ 
+
+" Git support
+"
+"""
+
 " set screen center
 nnoremap j jzz
 nnoremap k kzz
@@ -91,8 +77,6 @@ set nocompatible
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
-""" leader key
-let mapleader="\<Space>"
 
 " disable command line mode
 map q: :q
@@ -151,36 +135,57 @@ augroup END
 let g:vim_json_syntax_conceal = 0
 
 """ File Manager
-nnoremap <silent> <leader>e :NERDTreeToggle<CR>
+nnoremap <silent> <leader>e :NvimTreeToggle<CR>
 
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-                \ 'Modified'  :'M',
-                \ 'Staged'    :'S',
-                \ 'Untracked' :'U',
-                \ 'Renamed'   :'R',
-                \ 'Unmerged'  :'Un',
-                \ 'Deleted'   :'D',
-                \ 'Dirty'     :'✗',
-                \ 'Ignored'   :'I',
-                \ 'Clean'     :'✔︎',
-                \ 'Unknown'   :'?',
-                \ }
+let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache', '.idea', '.DS_Store' ] "empty by default
+let g:nvim_tree_auto_close = 1 "0 by default, closes the tree when it's the last window
+let g:nvim_tree_follow = 1 "0 by default, this option allows the cursor to be updated when entering a buffer
+let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
+let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and file icon highlight for opened files/directories.
+let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options
+let g:nvim_tree_tab_open = 1 "0 by default, will open the tree when entering a new tab and the tree was previously open
+let g:nvim_tree_disable_netrw = 1 "1 by default, disables netrw
+let g:nvim_tree_add_trailing = 1 "0 by default, append a trailing slash to folder names
+let g:nvim_tree_group_empty = 1 " 0 by default, compact folders that only contain a single folder into one node in the file tree
+let g:nvim_tree_lsp_diagnostics = 1 "0 by default, will show lsp diagnostics in the signcolumn. See :help nvim_tree_lsp_diagnostics
+let g:nvim_tree_disable_window_picker = 1 "0 by default, will disable the window picker.
+let g:nvim_tree_hijack_cursor = 1 "1 by default, when moving cursor in the tree, will position the cursor at the start of the file on the current line
+let g:nvim_tree_icon_padding = ' ' "one space by default, used for rendering the space between the icon and the filename. Use with caution, it could break rendering if you set an empty string depending on your font.
+let g:nvim_tree_symlink_arrow = ' >> ' " defaults to ' ➛ '. used as a separator between symlinks' source and target.
+let g:nvim_tree_update_cwd = 1 "0 by default, will update the tree cwd when changing nvim's directory (DirChanged event). Behaves strangely with autochdir set.
+let g:nvim_tree_window_picker_exclude = {
+    \   'filetype': [
+    \     'packer',
+    \     'qf'
+    \   ],
+    \   'buftype': [
+    \     'terminal'
+    \   ]
+    \ }
 
-" Exit Vim if NERDTree is the only window left:
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" let NERDTreeChDirMode=2
-" let g:NERDTreeWinSize=20
-" let g:NERDTreeDirArrowExpandable = '├'
-" let g:NERDTreeDirArrowCollapsible = '└'
-" let g:NERDTreeMapActivateNode = '<tab>'
-" let g:NERDTreeShowHidden = 1
-" au VimEnter *  NERDTree | wincmd p
+let g:nvim_tree_show_icons = {
+    \ 'git': 1,
+    \ 'folders': 0,
+    \ 'files': 0,
+    \ }
+
+let g:nvim_tree_icons = {
+    \ 'git': {
+    \   'unstaged': "✗",
+    \   'staged': "S",
+    \   'unmerged': "Un",
+    \   'renamed': "R",
+    \   'untracked': "U",
+    \   'deleted': "D",
+    \   'modified': "M",
+    \   'ignored': "I"
+    \   },
+    \ }
+
 
 """ use terminal
 set splitbelow
-let g:disable_key_mappings = 1
+"let g:disable_key_mappings = 1
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
   tnoremap <C-v><Esc> <Esc>
