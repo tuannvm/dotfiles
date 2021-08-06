@@ -79,10 +79,11 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 
 lua << EOF
 require'lspconfig'.gopls.setup{}
+require'lspconfig'.pyright.setup{}
 require'lspconfig'.terraformls.setup{}
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "go", "gomod", "gdscript", "yaml", "hcl" }, -- List of parsers to ignore installing
+  ensure_installed = { "go", "gomod", "gdscript", "yaml", "hcl", "python" }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
   },

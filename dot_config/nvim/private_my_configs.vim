@@ -32,7 +32,6 @@ nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
 
 
 """ 
-
 " Git support
 "
 """
@@ -118,18 +117,6 @@ syntax enable
 """ tpl
 autocmd FileType tpl setlocal noeol binary
 
-""" markdown
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-let g:markdown_fenced_languages = ['go', 'python', 'bash=sh', 'yaml']
-let g:markdown_syntax_conceal = 0
-let g:markdown_minlines = 100
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_conceal = 0
-
-augroup PrevimSettings
-  autocmd!
-  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-augroup END
 
 """ json
 let g:vim_json_syntax_conceal = 0
@@ -264,12 +251,7 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 
 """
 
-""" python """
-let g:formatterpath = ['/usr/local/bin/flake8']
-au BufWrite *.py :Autoformat
-autocmd FileType python let b:autoformat_autoindent=0
-autocmd FileType python let g:autoformat_retab = 0
-autocmd FileType python let g:autoformat_remove_trailing_spaces = 1
+""" python
 
 " Path to python interpreter for neovim
 let g:python3_host_prog  = '/Users/tuannvm/.pyenv/shims/python'
