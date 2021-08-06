@@ -235,7 +235,7 @@ let g:acp_enableAtStartup = 0
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 autocmd InsertLeave * silent! pclose!
-let g:deoplete#sources#jedi#python_path = '/Users/tuannvm/.pyenv/shims/python'
+let g:deoplete#sources#jedi#python_path = '/opt/homebrew/bin/python3'
 let g:deoplete#sources#jedi#show_docstring = 1
 
 " let g:deoplete#disable_auto_complete = 1
@@ -254,8 +254,8 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 """ python
 
 " Path to python interpreter for neovim
-let g:python3_host_prog  = '/Users/tuannvm/.pyenv/shims/python'
-let g:python_host_prog  = '/Users/tuannvm/.pyenv/shims/python'
+let g:python3_host_prog  = '/opt/homebrew/bin/python3'
+let g:python_host_prog  = '/usr/bin/python'
 " Skip the check of neovim module
 let g:python3_host_skip_check = 0
 
