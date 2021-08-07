@@ -43,7 +43,8 @@ call dein#add('nvim-telescope/telescope.nvim')
 " difftool
 "  call dein#add('whiteinge/diffconflicts')
 " statusbar
-  call dein#add('rbong/vim-crystalline')
+"  call dein#add('rbong/vim-crystalline')
+  call dein#add('vim-airline/vim-airline')
 " file explorer
   call dein#add('kyazdani42/nvim-tree.lua')
   call dein#add('kyazdani42/nvim-web-devicons')
@@ -78,10 +79,35 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 " languague server
 
 lua << EOF
-require'lspconfig'.gopls.setup{}
-require'lspconfig'.pyright.setup{}
-require'lspconfig'.terraformls.setup{}
 
+-- floating window
+
+local on_attach = function(client, bufnr)
+  vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover)
+  vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help)
+end
+
+
+-- diagnosis
+
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+})
+
+-- You will likely want to reduce updatetime which affects CursorHold
+-- note: this setting is global and should be set only once
+vim.o.updatetime = 250
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
+
+-- lspconfig
+require'lspconfig'.gopls.setup{ on_attach = on_attach }
+require'lspconfig'.pyright.setup{ on_attach = on_attach }
+require'lspconfig'.terraformls.setup{ on_attach = on_attach }
+
+-- highlight
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "go", "gomod", "gdscript", "yaml", "hcl", "python" }, -- List of parsers to ignore installing
   highlight = {
