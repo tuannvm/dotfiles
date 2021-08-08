@@ -4,7 +4,6 @@ catch
 endtry
 
 """ basic
-
 " Auto change dir (help with buffer name)
 " https://vi.stackexchange.com/questions/3314/short-buffer-name
 " set autochdir
@@ -32,7 +31,7 @@ nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
 
 
 """ 
-" Git support
+" Status Bar
 "
 """
 
@@ -230,7 +229,7 @@ set concealcursor=niv
 let g:acp_enableAtStartup = 0
 
 
-" Use deoplete.
+""" Use deoplete.
 let g:deoplete#enable_at_startup = 1
 autocmd InsertLeave * silent! pclose!
 let g:deoplete#sources#jedi#python_path = '/opt/homebrew/bin/python3'
@@ -247,6 +246,9 @@ set completeopt+=noselect
 let g:deoplete#sources#go#gocode_binary = '/Users/tuannvm/golang/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
+highlight Pmenu ctermbg=8 guibg=#606060
+highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
+highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
 """
 
 """ python

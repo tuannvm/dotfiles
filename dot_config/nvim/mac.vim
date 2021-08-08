@@ -2,6 +2,5 @@ set clipboard=unnamed
 set termguicolors
 let g:solarized_term_italics=0
 
-" Oceanic
-set background=dark
+set background=palenight
 colorscheme vim-material

@@ -17,6 +17,8 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
   " Add or remove your plugins here:
 " snippets
   call dein#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
+  call dein#add('hrsh7th/vim-vsnip')
+  call dein#add('hrsh7th/vim-vsnip-integ')
 " editorconfig
   call dein#add('editorconfig/editorconfig-vim')
 " focus on single window
@@ -33,7 +35,7 @@ if dein#load_state('/Users/tuannvm/.cache/dein')
 " theme
   call dein#add('hzchirs/vim-material')
 " tmux
-" call dein#add('christoomey/vim-tmux-navigator')
+call dein#add('numToStr/Navigator.nvim')
 " helm
 "  call dein#add('towolf/vim-helm')
 " fuzzy search
@@ -43,11 +45,11 @@ call dein#add('nvim-telescope/telescope.nvim')
 " difftool
 "  call dein#add('whiteinge/diffconflicts')
 " statusbar
-"  call dein#add('rbong/vim-crystalline')
-  call dein#add('vim-airline/vim-airline')
+  call dein#add('hoob3rt/lualine.nvim')
 " file explorer
   call dein#add('kyazdani42/nvim-tree.lua')
   call dein#add('kyazdani42/nvim-web-devicons')
+  call dein#add('ryanoasis/vim-devicons')
 if dein#check_install()
   call dein#install()
 endif
@@ -64,11 +66,6 @@ endif
 filetype plugin indent on
 syntax enable
 
-" If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
-
 "End dein Scripts-------------------------
 
 set runtimepath+=~/.vim_runtime
@@ -76,48 +73,7 @@ set runtimepath+=~/.vim_runtime
 " tmux hack
 nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 
-" languague server
 
-lua << EOF
-
--- floating window
-
-local on_attach = function(client, bufnr)
-  vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover)
-  vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help)
-end
-
-
--- diagnosis
-
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = false,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-})
-
--- You will likely want to reduce updatetime which affects CursorHold
--- note: this setting is global and should be set only once
-vim.o.updatetime = 250
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
-
--- lspconfig
-require'lspconfig'.gopls.setup{ on_attach = on_attach }
-require'lspconfig'.pyright.setup{ on_attach = on_attach }
-require'lspconfig'.terraformls.setup{ on_attach = on_attach }
-
--- highlight
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "go", "gomod", "gdscript", "yaml", "hcl", "python" }, -- List of parsers to ignore installing
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-  },
-  indent = {
-    enable = true
-  }
-}
-EOF
-
+source ~/.config/nvim/lua.vim
 source ~/.config/nvim/my_configs.vim
 " source ~/.config/nvim/basic.vim
