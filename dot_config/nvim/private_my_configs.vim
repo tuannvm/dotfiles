@@ -29,12 +29,6 @@ set updatetime=500
 nnoremap <leader>r <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
 
-
-""" 
-" Status Bar
-"
-"""
-
 " set screen center
 nnoremap j jzz
 nnoremap k kzz
@@ -42,6 +36,8 @@ set scrolloff=50
 
 " Auto close brackets
 inoremap ( ()<left>
+inoremap " ""<left>
+inoremap ' ''<left>
 inoremap [ []<left>
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
@@ -97,6 +93,7 @@ endif
 
 " Ignore case when searching
 set ignorecase
+
 
 " spell check
 " set spell spelllang=en_us
@@ -207,23 +204,6 @@ set showcmd
 set splitright
 set conceallevel=0
 set concealcursor=niv
-
-" set list
-" set listchars=tab:!·,trail:·,
-"let g:indentLine_char = ''
-"let g:indentLine_first_char = ''
-"let g:indentLine_showFirstIndentLevel = 1
-"let g:indentLine_setColors = 1
-
-""" netrw
-" let g:netrw_liststyle = 3
-" let g:netrw_banner = 1
-" let g:netrw_winsize = 15
-"
-" let g:netrw_browse_split = 0
-" let g:netrw_altv = 1
-" let g:loaded_netrw       = 1
-" let g:loaded_netrwPlugin = 1
 
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0

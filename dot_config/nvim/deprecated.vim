@@ -217,3 +217,21 @@ inoreabbrev <expr> __
 
 let g:table_mode_corner='|'
 
+
+" set list
+" set listchars=tab:!·,trail:·,
+"let g:indentLine_char = ''
+"let g:indentLine_first_char = ''
+"let g:indentLine_showFirstIndentLevel = 1
+"let g:indentLine_setColors = 1
+
+""" netrw
+" let g:netrw_liststyle = 3
+" let g:netrw_banner = 1
+" let g:netrw_winsize = 15
+"
+" let g:netrw_browse_split = 0
+" let g:netrw_altv = 1
+" let g:loaded_netrw       = 1
+" let g:loaded_netrwPlugin = 1
+
