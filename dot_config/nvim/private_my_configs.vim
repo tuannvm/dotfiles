@@ -23,7 +23,11 @@ set ttyfast
 set lazyredraw
 set updatetime=500
 
-" fzf & find
+""" Theme  
+highlight Pmenu ctermbg=8 guibg=#606060
+highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
+highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
+"""
 
 " Using Lua functions
 nnoremap <leader>r <cmd>lua require('telescope.builtin').find_files()<cr>
@@ -93,7 +97,6 @@ endif
 
 " Ignore case when searching
 set ignorecase
-
 
 " spell check
 " set spell spelllang=en_us
@@ -176,15 +179,9 @@ endif
 
 """ highlight line number
 set nu
-set cursorline
+set nocursorline
 hi cursorline cterm=none
 hi cursorlinenr ctermfg=green
-
-""" zoom pane
-nnoremap <C-w>z :tabedit %<CR>
-
-""" fuzzy search
-nnoremap <C-w>h :History:<CR>
 
 """ Ctrl a,e
 nnoremap <C-e> <Esc>i<C-o>$
@@ -209,27 +206,6 @@ set concealcursor=niv
 let g:acp_enableAtStartup = 0
 
 
-""" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-autocmd InsertLeave * silent! pclose!
-let g:deoplete#sources#jedi#python_path = '/opt/homebrew/bin/python3'
-let g:deoplete#sources#jedi#show_docstring = 1
-
-" let g:deoplete#disable_auto_complete = 1
-" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
-" deoplete.nvim recommend
-set completeopt+=noselect
-let g:deoplete#sources#go#gocode_binary = '/Users/tuannvm/golang/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-
-highlight Pmenu ctermbg=8 guibg=#606060
-highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
-highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
-"""
 
 """ python
 
@@ -244,14 +220,6 @@ nmap <F8> :TagbarToggle <CR>
 
 "" let @p='i ^[p']'
 autocmd BufRead,BufNewFile */templates/*.yaml,*/templates/*.tpl set ft=helm
-
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:neosnippet#disable_runtime_snippets = 1
-" imap <expr><TAB>
-"  \ pumvisible() ? "\<C-n>" :
-"  \ neosnippet#expandable_or_jumpable() ?
-"  \
-"\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " terraform
 let g:terraform_fmt_on_save=1
@@ -274,3 +242,4 @@ let g:gist_post_private = 1
 if has('nvim') && executable('nvr')
   let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 endif
+

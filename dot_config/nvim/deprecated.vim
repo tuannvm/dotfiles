@@ -235,3 +235,34 @@ let g:table_mode_corner='|'
 " let g:loaded_netrw       = 1
 " let g:loaded_netrwPlugin = 1
 
+
+""" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+autocmd InsertLeave * silent! pclose!
+let g:deoplete#sources#jedi#python_path = '/opt/homebrew/bin/python3'
+let g:deoplete#sources#jedi#show_docstring = 1
+
+" let g:deoplete#disable_auto_complete = 1
+" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" deoplete.nvim recommend
+set completeopt+=noselect
+let g:deoplete#sources#go#gocode_binary = '/Users/tuannvm/golang/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
+highlight Pmenu ctermbg=8 guibg=#606060
+highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
+highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
+"""
+
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:neosnippet#disable_runtime_snippets = 1
+" imap <expr><TAB>
+"  \ pumvisible() ? "\<C-n>" :
+"  \ neosnippet#expandable_or_jumpable() ?
+"  \
+"\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
