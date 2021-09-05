@@ -45,7 +45,7 @@ use 'nvim-telescope/telescope.nvim'
 
 -- tabline
   use {
-    'romgrk/barbar.nvim',
+    'akinsho/bufferline.nvim',
     requires = {'kyazdani42/nvim-web-devicons'}
   }
 
