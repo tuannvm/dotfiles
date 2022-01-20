@@ -11,6 +11,13 @@ endtry
 """ leader key
 let mapleader="\<Space>"
 
+
+" Shift line up/down/left/right https://www.reddit.com/r/vim/comments/pqiynv/moving_text_one_of_my_favorite_mappings/
+nnoremap <C-H> <<
+nnoremap <C-J> <CMD>m .+1<CR>
+nnoremap <C-K> <CMD>m .-2<CR>
+nnoremap <C-L> >>  
+
 " Performance
 "" Disabling Neovim providers: 
 let g:loaded_node_provider=0
@@ -37,7 +44,7 @@ nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
 " set screen center
 nnoremap j jzz
 nnoremap k kzz
-set scrolloff=50
+" set scrolloff=50
 
 " Auto close brackets
 inoremap ( ()<left>
