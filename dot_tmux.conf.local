@@ -14,7 +14,7 @@ set-option -s escape-time 10
 
 # 256 color
 # fn arrow keys for zsh
-set -g default-terminal "screen-256color"
+set -g default-terminal "xterm-256color"
 set-option -ga terminal-overrides ",xterm-256color*:Tc:smso"
 
 # fix vim copy
@@ -79,8 +79,6 @@ set-window-option -g window-status-format '#[bg=default,fg=white] #I #W '
 set-window-option -g window-status-current-format '#[bg=brightblack,fg=brightwhite] #I #W '
 
 # Switching panes should change the foreground color but not border colors.
-set -g window-style 'bg=default,fg=white'
-set -g window-active-style 'bg=default,fg=brightwhite'
 set -g pane-border-style 'bg=default,fg=brightblack'
 set -g pane-active-border-style 'bg=default,fg=magenta'
 
