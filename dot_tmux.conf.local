@@ -80,10 +80,10 @@ set-window-option -g window-status-current-format '#[bg=brightblack,fg=brightwhi
 
 # Switching panes should change the foreground color but not border colors.
 set -g pane-border-style 'bg=default,fg=brightblack'
-set -g pane-active-border-style 'bg=default,fg=magenta'
+set -g pane-active-border-style 'bg=default,fg=red'
 
 ######
-set -g status-right '#{prefix_highlight}#[fg=magenta] #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD) #[fg=black,bg=magenta,bold] #(kubectl config current-context | tr -s " "| cut -d" " -f2 | cut -d"/" -f2) #[bg=default,nobold,noitalics,nounderscore]#[fg=magenta]#(kubectl config view --minify | grep namespace | cut -d":" -f2) #[fg=black,bg=magenta,bold] #(date +"%H:%M %d %b") '
+set -g status-right '#{prefix_highlight}#[fg=red] #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD) #[fg=black,bg=red,bold] #(kubectl config current-context | tr -s " "| cut -d" " -f2 | cut -d"/" -f2) #[bg=default,nobold,noitalics,nounderscore]#[fg=red]#(kubectl config view --minify | grep namespace | cut -d":" -f2) #[fg=black,bg=red,bold] #(date +"%H:%M %d %b") '
 
 set -g status-right-length 1000
 # --------------------------------------------------------------------------

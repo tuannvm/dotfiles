@@ -24,24 +24,20 @@ return require('packer').startup(function()
 -- terraform support
   use 'hashivim/vim-terraform'
 
--- theme
-  use 'marko-cerovac/material.nvim'
-
 -- tmux
 use 'numToStr/Navigator.nvim'
 
--- fuzzy search
-use 'nvim-lua/popup.nvim'
-use 'nvim-lua/plenary.nvim'
-use 'nvim-telescope/telescope.nvim'
-
--- statusbar
-  use 'hoob3rt/lualine.nvim'
+-- fuzzy search (fzf)
+  use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
 
 -- file explorer
-  use 'kyazdani42/nvim-tree.lua'
-  use 'kyazdani42/nvim-web-devicons'
-  use 'ryanoasis/vim-devicons'
+  use {
+      'kyazdani42/nvim-tree.lua',
+      requires = {
+        'kyazdani42/nvim-web-devicons', -- optional, for file icon
+      },
+      config = function() require'nvim-tree'.setup {} end
+  }
 
 -- tabline
   use {

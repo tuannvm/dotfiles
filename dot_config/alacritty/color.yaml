@@ -1,35 +1,28 @@
 # Colors (Material Theme)
 schemes:
-  light: &light
-    bright:
-      black: '#7a8181'
-      blue: '#5ca7e4'
-      cyan: '#00c990'
-      green: '#49d0c5'
-      magenta: '#697098'
-      red: '#f76e6e'
-      white: '#989fb1'
-      yellow: '#dac26b'
-    cursor:
-      cursor: '#403f53'
-      text: '#fbfbfb'
-    normal:
-      black: '#011627'
-      blue: '#4876d6'
-      cyan: '#08916a'
-      green: '#2aa298'
-      magenta: '#403f53'
-      red: '#d3423e'
-      white: '#7a8181'
-      yellow: '#daaa01'
+  material-light: &light
+    name: Material Light
+    # Default colors
     primary:
-      background: '#ffffff'
-      foreground: '#403f53'
-    selection:
-      background: '#f2f2f2'
-      text: '#403f53'
+      background: '0xfafafa'
+      foreground: '0x5a5a5a'
 
-  dark: &dark
+    # Normal colors
+    normal:
+      black:   '0x000000'
+      red:     '0xe53935'
+      green:   '0x91b859'
+      yellow:  '0xffb62c'
+      blue:    '0x6182b8'
+      magenta: '0x7c4dff'
+      cyan:    '0x39adb5'
+      white:   '0x6172b0'
+
+  indexed_colors:
+    - { index: 16, color: '0xb15c00' }
+    - { index: 17, color: '0xc64343' }
+
+  material: &material
     # Default colors
     primary:
       background: '#151515'
@@ -46,7 +39,7 @@ schemes:
       cyan:    '#00ACC1'
       white:   '#F5F5F5'  # Arbitrary
 
-  ocean: &ocean
+  ocean: &dark
     # Default colors
     primary:
       background: '#263238'
@@ -91,4 +84,4 @@ schemes:
       cyan:    '0xa3f7ff'
       white:   '0xffffff'
 
-colors: *ocean
+colors: *light

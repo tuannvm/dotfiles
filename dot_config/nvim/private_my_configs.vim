@@ -12,7 +12,11 @@ endtry
 let mapleader="\<Space>"
 
 
-" Shift line up/down/left/right https://www.reddit.com/r/vim/comments/pqiynv/moving_text_one_of_my_favorite_mappings/
+""" universal statusline
+set laststatus=3
+highlight VertSplit cterm=NONE gui=NONE
+
+""" Shift line up/down/left/right https://www.reddit.com/r/vim/comments/pqiynv/moving_text_one_of_my_favorite_mappings/
 nnoremap <C-H> <<
 nnoremap <C-J> <CMD>m .+1<CR>
 nnoremap <C-K> <CMD>m .-2<CR>
@@ -47,13 +51,13 @@ nnoremap k kzz
 " set scrolloff=50
 
 " Auto close brackets
-inoremap ( ()<left>
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
+""inoremap ( ()<left>
+""inoremap " ""<left>
+""inoremap ' ''<left>
+""inoremap [ []<left>
+""inoremap { {}<left>
+""inoremap {<CR> {<CR>}<ESC>O
+""inoremap {;<CR> {<CR>};<ESC>O
 
 " resize
 let g:lens#height_resize_min = 40
@@ -207,3 +211,11 @@ if has('nvim') && executable('nvr')
   let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 endif
 
+""" file explorer
+
+autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+nnoremap <C-n> :NvimTreeToggle<CR>
+
+""" fuzzy
+
+nnoremap <C-f> :FZF<CR>
