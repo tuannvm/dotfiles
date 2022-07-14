@@ -1,5 +1,5 @@
 local ret_status="%(?:%{$fg_bold[yellow]%}λ:%{$fg_bold[yellow]%}λ)"
-PROMPT="${ret_status} %{$fg[magenta]%}%c%{$reset_color%} %# "
+PROMPT="${ret_status} %{$fg[red]%}%c%{$reset_color%} %# "
 
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
