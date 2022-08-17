@@ -80,10 +80,10 @@ set-window-option -g window-status-current-format '#[bg=brightblack,fg=brightwhi
 
 # Switching panes should change the foreground color but not border colors.
 set -g pane-border-style 'bg=default,fg=brightblack'
-set -g pane-active-border-style 'bg=default,fg=red'
+set -g pane-active-border-style 'bg=default,fg=darkgreen'
 
 ######
-set -g status-right '#{prefix_highlight}#[fg=red] #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD) #[fg=black,bg=red,bold] #(kubectl config current-context | tr -s " "| cut -d" " -f2 | cut -d"/" -f2) #[bg=default,nobold,noitalics,nounderscore]#[fg=red]#(kubectl config view --minify | grep namespace | cut -d":" -f2) #[fg=black,bg=red,bold] #(date +"%H:%M %d %b") '
+set -g status-right '#{prefix_highlight}#[fg=darkgreen] #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD) #[fg=black,bg=darkgreen,bold] #(kubectl config current-context | tr -s " "| cut -d" " -f2 | cut -d"/" -f2) #[bg=default,nobold,noitalics,nounderscore]#[fg=darkgreen]#(kubectl config view --minify | grep namespace | cut -d":" -f2) #[fg=black,bg=darkgreen,bold] #(date +"%H:%M %d %b") '
 
 set -g status-right-length 1000
 # --------------------------------------------------------------------------
@@ -106,8 +106,8 @@ bind r source-file ~/.tmux.conf \; display '~/.tmux.conf sourced'
 
 # if you're running tmux within iTerm2
 #   - and tmux is 1.9 or 1.9a
-#   - and iTerm2 is configured to let option key act as +Esc
-#   - and iTerm2 is configured to send [1;9A -> [1;9D for option + arrow keys
+#   - and iTerm2 is configudarkgreen to let option key act as +Esc
+#   - and iTerm2 is configudarkgreen to send [1;9A -> [1;9D for option + arrow keys
 # then uncomment the following line to make Meta + arrow keys mapping work
 #set -ga terminal-overrides "*:kUP3=\e[1;9A,*:kDN3=\e[1;9B,*:kRIT3=\e[1;9C,*:kLFT3=\e[1;9D"
 
@@ -159,7 +159,7 @@ tmux_conf_theme_24b_colour=true
 #
 # # status right style
 # tmux_conf_theme_status_right_fg='#ffffff,#e4e4e4,#000000' # light gray, white, black
-# tmux_conf_theme_status_right_bg='#080808,#d70000,#e4e4e4' # dark gray, red, white
+# tmux_conf_theme_status_right_bg='#080808,#d70000,#e4e4e4' # dark gray, darkgreen, white
 # tmux_conf_theme_status_right_attr='none,none,bold'
 #
 
@@ -171,6 +171,9 @@ tmux_conf_theme_24b_colour=true
 # on macOS, this requires installing reattach-to-user-namespace, see README.md
 # on Linux, this requires xsel or xclip
 tmux_conf_copy_to_os_clipboard=true
+
+# copy remotely
+set -s set-clipboard on
 
 
 # -- user customizations -------------------------------------------------------

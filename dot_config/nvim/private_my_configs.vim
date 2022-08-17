@@ -11,6 +11,8 @@ endtry
 """ leader key
 let mapleader="\<Space>"
 
+""" copy remotely
+let g:oscyank_term = 'default'
 
 """ universal statusline
 set laststatus=3
