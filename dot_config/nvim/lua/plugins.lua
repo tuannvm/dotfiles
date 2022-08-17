@@ -45,4 +45,7 @@ use 'numToStr/Navigator.nvim'
     requires = {'kyazdani42/nvim-web-devicons'}
   }
 
+-- copy remotely
+use 'ojroques/vim-oscyank'
+
 end)
