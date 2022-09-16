@@ -173,7 +173,7 @@ tmux_conf_copy_to_os_clipboard=true
 
 # copy remotely
 ## https://github.com/tmux/tmux/wiki/Clipboard#the-set-clipboard-option
-set -s set-clipboard external
+set -s set-clipboard on
 ## https://github.com/tmux/tmux/issues/3287#issuecomment-1203346553
 set -g allow-passthrough on
 
