@@ -40,12 +40,14 @@ use 'numToStr/Navigator.nvim'
   }
 
 -- tabline
-  use {
-    'akinsho/bufferline.nvim',
-    requires = {'kyazdani42/nvim-web-devicons'}
-  }
+  --use {
+  --  'akinsho/bufferline.nvim',
+  --  requires = {'kyazdani42/nvim-web-devicons'}
+  --}
 
 -- copy remotely
 use 'ojroques/vim-oscyank'
 
+-- colorscheme
+use 'kaicataldo/material.vim'
 end)

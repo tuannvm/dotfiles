@@ -36,18 +36,18 @@ require'nvim-tree'.setup {
 }
 
 -- tabbar
-require("bufferline").setup{
-  options = {
-    offsets = {
-      {
-        filetype = "NvimTree",
-        text = "File Explorer",
-        highlight = "Directory",
-        text_align = "left"
-      }
-    }
-  }
-}
+--require("bufferline").setup{
+--  options = {
+--    offsets = {
+--      {
+--        filetype = "NvimTree",
+--        text = "File Explorer",
+--        highlight = "Directory",
+--        text_align = "left"
+--      }
+--    }
+--  }
+--}
 
 -- diagnosis
 
