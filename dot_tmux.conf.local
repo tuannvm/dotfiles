@@ -71,7 +71,7 @@ if -b '[ -c /dev/clipboard ]' 'bind y run -b "tmux save-buffer - > /dev/clipboar
 # -- theme -----------------------------------------------------------------
 # Use normal and bright monochrome colors to show a tab line on the left.
 set -g status-bg black
-set -g status-fg darkgreen
+set -g status-fg brightgreen
 set -g status-justify left
 set-window-option -g window-status-separator ''
 set-window-option -g window-status-format '#[bg=default,fg=white] #I #W '
@@ -79,10 +79,10 @@ set-window-option -g window-status-current-format '#[bg=brightblack,fg=brightwhi
 
 # Switching panes should change the foreground color but not border colors.
 set -g pane-border-style 'bg=default,fg=brightblack'
-set -g pane-active-border-style 'bg=default,fg=darkgreen'
+set -g pane-active-border-style 'bg=default,fg=brightgreen'
 
 ######
-set -g status-right '#{prefix_highlight}#[fg=darkgreen] #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD) #[fg=black,bg=darkgreen,bold] #(kubectl config current-context | tr -s " "| cut -d" " -f2 | cut -d"/" -f2) #[bg=default,nobold,noitalics,nounderscore]#[fg=darkgreen]#(kubectl config view --minify | grep namespace | cut -d":" -f2) #[fg=black,bg=darkgreen,bold] #(date +"%H:%M %d %b") '
+set -g status-right '#{prefix_highlight}#[fg=brightgreen] #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD) #[fg=black,bg=brightgreen,bold] #(kubectl config current-context | tr -s " "| cut -d" " -f2 | cut -d"/" -f2) #[bg=default,nobold,noitalics,nounderscore]#[fg=brightgreen]#(kubectl config view --minify | grep namespace | cut -d":" -f2) #[fg=black,bg=brightgreen,bold] #(date +"%H:%M %d %b") '
 
 set -g status-right-length 1000
 # --------------------------------------------------------------------------
@@ -105,8 +105,8 @@ bind r source-file ~/.tmux.conf \; display '~/.tmux.conf sourced'
 
 # if you're running tmux within iTerm2
 #   - and tmux is 1.9 or 1.9a
-#   - and iTerm2 is configudarkgreen to let option key act as +Esc
-#   - and iTerm2 is configudarkgreen to send [1;9A -> [1;9D for option + arrow keys
+#   - and iTerm2 is configubrightgreen to let option key act as +Esc
+#   - and iTerm2 is configubrightgreen to send [1;9A -> [1;9D for option + arrow keys
 # then uncomment the following line to make Meta + arrow keys mapping work
 #set -ga terminal-overrides "*:kUP3=\e[1;9A,*:kDN3=\e[1;9B,*:kRIT3=\e[1;9C,*:kLFT3=\e[1;9D"
 
@@ -158,7 +158,7 @@ tmux_conf_theme_24b_colour=true
 #
 # # status right style
 # tmux_conf_theme_status_right_fg='#ffffff,#e4e4e4,#000000' # light gray, white, black
-# tmux_conf_theme_status_right_bg='#080808,#d70000,#e4e4e4' # dark gray, darkgreen, white
+# tmux_conf_theme_status_right_bg='#080808,#d70000,#e4e4e4' # dark gray, brightgreen, white
 # tmux_conf_theme_status_right_attr='none,none,bold'
 #
 
