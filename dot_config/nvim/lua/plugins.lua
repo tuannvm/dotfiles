@@ -20,6 +20,8 @@ return require('packer').startup(function()
 -- git support
   use 'iberianpig/tig-explorer.vim'
   use 'rbgrouleff/bclose.vim'
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
 
 -- terraform support
   use 'hashivim/vim-terraform'
