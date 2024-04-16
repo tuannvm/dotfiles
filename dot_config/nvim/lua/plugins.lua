@@ -48,8 +48,14 @@ use {
 }
 
 -- copy remotely
-use 'ojroques/vim-oscyank'
+use { 
+  'ojroques/vim-oscyank',
+  branch = 'main'
+  }
 
 -- colorscheme
-use 'kaicataldo/material.vim'
+use 'Tsuzat/NeoSolarized.nvim'
+
+-- Github Copilot
+use 'github/copilot.vim'
 end)

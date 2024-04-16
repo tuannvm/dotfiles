@@ -1,7 +1,6 @@
 # Colors (Material Theme)
 schemes:
   material-light: &light
-    name: Material Light
     # Default colors
     primary:
       background: '0xfafafa'

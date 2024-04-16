@@ -1,21 +1,18 @@
 alacritty-theme () {
-        if ! test -f ~/.config/alacritty/color.yaml
+        if ! test -f ~/.config/alacritty/alacritty.toml
         then
-                echo "file ~/.config/alacritty/color.yaml doesn't exist"
+                echo "file ~/.config/alacritty/alacritty.toml doesn't exist"
         fi
-        config_path=`realpath ~/.config/alacritty/color.yaml`
+        config_path=`realpath ~/.config/alacritty/alacritty.toml`
         if [ $1 = "toggle" ]
         then
-                current=`cat ~/.config/alacritty/color.yaml | grep ^colors | cut -d" " -f2`
-                if [ $current = "*dark" ]
+                current=`cat ~/.config/alacritty/alacritty.toml  | grep themes | cut -d "/" -f8 | cut -d "." -f1`
+                if [ $current = "dark" ]
                 then
-                        desire="*light"
+                        gsed -i '0,/dark/{s//light/}' $config_path
                 else
-                        desire="*dark"
+                        gsed -i '0,/light/{s//dark/}' $config_path
                 fi
-                sed -i "" -e "s#^colors: \*.*#colors: $desire#g" $config_path
-        else
-                sed -i "" -e "s#^colors: \*.*#colors: *$1#g" $config_path
                 echo "switched to $$."
         fi
 }
