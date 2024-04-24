@@ -36,13 +36,6 @@ set ttyfast
 set lazyredraw
 set updatetime=500
 
-""" Theme  
-highlight Pmenu ctermbg=8 guibg=#606060
-highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
-highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
-highlight EndOfBuffer ctermfg=0
-"""
-
 " Using Lua functions
 nnoremap <leader>r <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
@@ -151,7 +144,6 @@ endif
 set nu
 set nocursorline
 hi cursorline cterm=none
-hi cursorlinenr ctermfg=green
 
 """ Ctrl a,e
 nnoremap <C-e> <Esc>i<C-o>$

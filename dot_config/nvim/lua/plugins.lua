@@ -1,21 +1,21 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- This file can be loaded by calling `lua require('useins')` from your init.vim
 
 return require('packer').startup(function()
 
 -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
--- snippet
+-- Tree
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'hrsh7th/vim-vsnip'
-  use 'hrsh7th/vim-vsnip-integ'
+
+-- snippet & completion
+  use 'neovim/nvim-lspconfig'
+  use {'ms-jpq/coq_nvim', branch = 'coq'}
 
 -- editorconfig
   use 'editorconfig/editorconfig-vim'
 
 -- completion
-  use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/nvim-compe'
 
 -- git support
   use 'iberianpig/tig-explorer.vim'
@@ -54,7 +54,7 @@ use {
   }
 
 -- colorscheme
-use 'Tsuzat/NeoSolarized.nvim'
+use 'shaunsingh/solarized.nvim'
 
 -- Github Copilot
 use 'github/copilot.vim'
