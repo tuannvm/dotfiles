@@ -117,4 +117,7 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # Created by `pipx` on 2023-07-17 03:12:48
-export PATH="$PATH:~/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
+
+# Added by Windsurf
+export PATH="$HOME/.codeium/windsurf/bin:$PATH"

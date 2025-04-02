@@ -1,6 +1,12 @@
 lua << EOF
 require('plugins')
 
+-- copilot
+vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+          expr = true,
+          replace_keycodes = false
+        })
+
 -- completion
 vim.o.completeopt = "menuone,noselect"
 
@@ -101,4 +107,10 @@ map('n', "<C-w><Left>", "<CMD>lua require('Navigator').left()<CR>", opts)
 map('n', "<C-w><Up>", "<CMD>lua require('Navigator').up()<CR>", opts)
 map('n', "<C-w><Right>", "<CMD>lua require('Navigator').right()<CR>", opts)
 map('n', "<C-w><Down>", "<CMD>lua require('Navigator').down()<CR>", opts)
+
+-- commit gpt
+vim.api.nvim_create_user_command('Msg', function()
+    vim.cmd('!lumen draft | pbcopy')
+end, {})
 EOF
+

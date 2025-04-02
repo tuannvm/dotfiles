@@ -56,6 +56,5 @@ use {
 -- colorscheme
 use 'shaunsingh/solarized.nvim'
 
--- Github Copilot
-use 'github/copilot.vim'
 end)
+
