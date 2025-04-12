@@ -1,6 +1,6 @@
 # My Dotfiles
 
-[![chezmoi status](https://img.shields.io/badge/managed%20by-chezmoi-brightgreen)](https://chezmoi.io)
+[![chezmoi status](https://img.shields.io/badge/managed%20by-chezmoi-brightgreen)](https://chezmoi.io) [![Secrets Scan Status](https://github.com/tuannvm/dotfiles/actions/workflows/secrets-scan.yml/badge.svg)](https://github.com/tuannvm/dotfiles/actions/workflows/secrets-scan.yml)
 
 This repository contains my personal configuration files (dotfiles) for various tools I use on macOS. It is managed using [chezmoi](https://chezmoi.io).
 
