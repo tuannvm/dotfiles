@@ -1,0 +1,4 @@
+# https://github.com/jonas/tig/issues/567#issuecomment-487855019
+bind status C !git commit --signoff
+# https://github.com/jonas/tig/commit/2fb802528e5eb3c5e7ef215210afd16753077d15
+bind status M !bash -c 'lumen -p "openai" -m "gpt-4o" draft | tee >(pbcopy)'
