@@ -5,9 +5,6 @@ return require('packer').startup(function()
 -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
--- Tree
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
 -- snippet & completion
   use 'neovim/nvim-lspconfig'
   use {'ms-jpq/coq_nvim', branch = 'coq'}
@@ -55,6 +52,33 @@ use {
 
 -- colorscheme
 use 'shaunsingh/solarized.nvim'
+
+ -- mcphub.nvim
+  use {
+    'ravitemer/mcphub.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',   -- for async jobs and HTTP
+    },
+    cmd     = 'MCPHub',                   -- lazy‑load on :MCPHub
+    run     = 'npm install -g mcp-hub@latest',  -- install the mcp-hub CLI globally
+    -- build = 'bundled_build.lua',      -- alternative to global install; see Advanced section below
+    config  = function()
+      -- basic setup with defaults
+      require('mcphub').setup()
+    end,
+  }
+
+-- codecompanion
+use({
+  "olimorris/codecompanion.nvim",
+  config = function()
+    require("codecompanion").setup()
+  end,
+  requires = {
+    "nvim-lua/plenary.nvim",
+    "nvim-treesitter/nvim-treesitter",
+  }
+})
 
 end)
 
