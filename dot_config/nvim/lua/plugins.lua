@@ -51,7 +51,7 @@ use {
   }
 
 -- colorscheme
-use 'shaunsingh/solarized.nvim'
+use ({ 'projekt0n/github-nvim-theme' })
 
  -- mcphub.nvim
   use {

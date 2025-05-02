@@ -1,18 +1,32 @@
-alacritty-theme () {
-        if ! test -f ~/.config/alacritty/alacritty.toml
-        then
-                echo "file ~/.config/alacritty/alacritty.toml doesn't exist"
-        fi
-        config_path=`realpath ~/.config/alacritty/alacritty.toml`
-        if [ $1 = "toggle" ]
-        then
-                current=`cat ~/.config/alacritty/alacritty.toml  | grep themes | cut -d "/" -f6 | cut -d "." -f1`
-                if [ $current = "dark" ]
-                then
-                        gsed -i '0,/dark/{s//light/}' $config_path
-                else
-                        gsed -i '0,/light/{s//dark/}' $config_path
-                fi
-                echo "switched to $$."
-        fi
+toggle-vim-theme() {
+  local vimrc="$HOME/.custom.vim"
+  local current desired
+
+  # 1) Verify file exists
+  if [[ ! -f $vimrc ]]; then
+    echo "Error: $vimrc not found."
+    return 1
+  fi
+
+  # 2) Read current scheme name
+  current=$(awk '/^colorscheme /{print $2; exit}' "$vimrc")
+  if [[ -z $current ]]; then
+    echo "Error: no colorscheme line in $vimrc."
+    return 1
+  fi
+
+  # 3) Swap 'dark' ↔ 'light'
+  if [[ $current == *dark* ]]; then
+    desired=${current//dark/light}
+  else
+    desired=${current//light/dark}
+  fi
+
+  # 4) In-place edit via gsed, preserving the symlink itself
+  gsed -i --follow-symlinks \
+    "s|^colorscheme .*|colorscheme $desired|" \
+    "$vimrc"
+
+  echo "Switched Vim theme: $current → $desired"
 }
+
