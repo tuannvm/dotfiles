@@ -7,6 +7,18 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "context_servers": {
+    "github-mcp-server": {
+      "command": {
+        "path": "github-mcp-server",
+        "args": [
+          "stdio"
+        ],
+        "env": null
+      },
+      "settings": {}
+    }
+  },
   "base_keymap": "VSCode",
   "autosave": {
     "after_delay": {
@@ -18,9 +30,11 @@
     "edit_prediction_provider": "zed"
   },
   "assistant": {
+    "default_profile": "write",
+    "always_allow_tool_actions": true,
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-3-7-sonnet"
+      "provider": "openai",
+      "model": "o4-mini"
     },
     "version": "2"
   },
@@ -29,12 +43,12 @@
     "diagnostics": false
   },
   "vim_mode": true,
-  "ui_font_size": 16,
-  "buffer_font_size": 16,
+  "ui_font_size": 15,
+  "buffer_font_size": 14,
   "theme": {
     "mode": "system",
-    "light": "One Light",
-    "dark": "GitHub Dark Default"
+    "light": "Github Light Tritanopia",
+    "dark": "Github Dark Tritanopia"
   },
-  "bottom_dock_layout": "full"
+  "bottom_dock_layout": "left_aligned"
 }
